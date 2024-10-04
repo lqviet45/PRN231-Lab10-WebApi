@@ -11,7 +11,7 @@
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__MySQLConnection=Server=mySqlDb;Database=Lab10;User=root;Password=password123
-      - ConnectionStrings__SQLServerConnection=Server=MSSQLServer;Database=Lab10;User=sa;Password=Password12345
+      - ConnectionStrings__SQLServerConnection=Server=MSSQLServer;Database=Lab10;User=sa;Password=Password12345;TrustServerCertificate=Yes
       - ASPNETCORE_URLS=http://+:8080
     networks:
       - lab10-network
