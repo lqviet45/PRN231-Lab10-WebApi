@@ -1,0 +1,49 @@
+﻿services:
+  lab10-api:
+    image: lab10-api
+    build:
+      context: .
+      dockerfile: Lab10-Api/Dockerfile
+    ports:
+      - "5000:8080"
+    depends_on:
+      - mySqlDb
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__MySQLConnection=Server=mySqlDb;Database=Lab10;User=root;Password=password123
+      - ConnectionStrings__SQLServerConnection=Server=MSSQLServer;Database=Lab10;User=sa;Password=Password12345
+      - ASPNETCORE_URLS=http://+:8080
+    networks:
+      - lab10-network
+  mySqlDb:
+    image: mysql:8.0
+    container_name: mysql
+    user: root
+    environment:
+      MYSQL_ROOT_PASSWORD: password123
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - lab10-network
+  MSSQLServer:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: mssql
+    user: root
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: Password12345
+    ports:
+      - 1433:1433
+    volumes:
+      - ./mssql_data:/var/opt/mssql/data
+    networks:
+      - lab10-network
+   
+networks:
+  lab10-network:
+    driver: bridge
+volumes:
+  mysql_data:
+  mssql_data:
