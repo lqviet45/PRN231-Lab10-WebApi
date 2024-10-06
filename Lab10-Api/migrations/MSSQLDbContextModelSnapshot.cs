@@ -28,21 +28,47 @@ namespace Lab10_Api.migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("b09a3e1f-a4f0-abe0-0e75-e56743e1468a"),
+                            Name = "Handmade Granite Shoes",
+                            Price = 298.901601490409299m
+                        },
+                        new
+                        {
+                            Id = new Guid("48393e09-71c3-11e8-dc46-1aa7955b3600"),
+                            Name = "Tasty Rubber Salad",
+                            Price = 964.560512022037903m
+                        },
+                        new
+                        {
+                            Id = new Guid("aa07dcb0-ea12-fc98-bdec-9ce023398cc8"),
+                            Name = "Unbranded Steel Salad",
+                            Price = 519.845413310825086m
+                        },
+                        new
+                        {
+                            Id = new Guid("1798dbba-730a-7a41-8a56-cad7dd2464cd"),
+                            Name = "Handcrafted Plastic Chicken",
+                            Price = 260.331181645419163m
+                        },
+                        new
+                        {
+                            Id = new Guid("d471bbc3-1748-f41f-b81f-475cf0caf829"),
+                            Name = "Unbranded Soft Shoes",
+                            Price = 738.075054237167728m
+                        });
                 });
 #pragma warning restore 612, 618
         }

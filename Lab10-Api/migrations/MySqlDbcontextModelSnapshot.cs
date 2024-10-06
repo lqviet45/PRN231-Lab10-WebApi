@@ -28,21 +28,47 @@ namespace Lab10_Api.migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("longtext");
-
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(65,30)");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("bb5088c6-6564-2dc9-adcc-da90e1ab9821"),
+                            Name = "Gorgeous Cotton Pants",
+                            Price = 114.287376557790874m
+                        },
+                        new
+                        {
+                            Id = new Guid("17c5017a-d246-3e07-5546-04f053a4e7e3"),
+                            Name = "Small Wooden Chair",
+                            Price = 641.835813126082501m
+                        },
+                        new
+                        {
+                            Id = new Guid("067cde77-728b-c736-4c17-8d24a388fb66"),
+                            Name = "Generic Cotton Gloves",
+                            Price = 943.108157354431006m
+                        },
+                        new
+                        {
+                            Id = new Guid("6152eb29-9afe-414d-7207-3315b147d009"),
+                            Name = "Practical Steel Keyboard",
+                            Price = 267.268843842061717m
+                        },
+                        new
+                        {
+                            Id = new Guid("4a56aee3-9207-85f1-a522-7a10b11f42ff"),
+                            Name = "Practical Soft Computer",
+                            Price = 983.944050964075981m
+                        });
                 });
 #pragma warning restore 612, 618
         }
